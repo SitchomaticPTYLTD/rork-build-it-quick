@@ -41,6 +41,54 @@ class AppViewModel {
     init() {
         scripts = StorageService.shared.loadScripts()
         templates = StorageService.shared.loadTemplates()
+        seedBuiltInScripts()
+    }
+
+    private func seedBuiltInScripts() {
+        let existingNames = Set(scripts.map { $0.name })
+        let builtIn = AppViewModel.builtInScripts()
+        var added = false
+        for script in builtIn where !existingNames.contains(script.name) {
+            scripts.append(script)
+            added = true
+        }
+        if added {
+            StorageService.shared.saveScripts(scripts)
+        }
+    }
+
+    private static func builtInScripts() -> [ScriptTemplate] {
+        [
+            ScriptTemplate(name: "Premium card types", steps: [
+                ProcessingStep(type: .removeLinesNotContaining, strings: [
+                    "Platinum", "Signature", "Gold", "Corporate", "Alberta",
+                    "Australia", "Zealand", "Island", "Infinite", "Purchasing",
+                    "Titanium", "Business", "Uhnw", "World"
+                ])
+            ]),
+            ScriptTemplate(name: "Casino keywords", steps: [
+                ProcessingStep(type: .removeLinesNotContaining, strings: [
+                    "Spin", "Slot", "Vegas", "Reel", "Pokie", "fortune",
+                    "Casin", "Win", "Play", "Bit", "King", "Joker", "Joka", "Bet"
+                ])
+            ]),
+            ScriptTemplate(name: "International emails", steps: [
+                ProcessingStep(type: .removeLinesContaining, strings: [
+                    ".pl;", ".de;", ".cz;", ".za;", ".nz;", ".it;"
+                ])
+            ]),
+            ScriptTemplate(name: "Convert to frequency report V2", steps: [
+                ProcessingStep(type: .convertLogToDualFindData),
+                ProcessingStep(type: .removeLinesContaining, strings: [":"]),
+                ProcessingStep(type: .removePrefix, prefix: " \u{2022} "),
+                ProcessingStep(type: .removeLinesContaining, strings: ["name/ema", "==="]),
+                ProcessingStep(type: .removeEmptyLines),
+                ProcessingStep(type: .replaceText, searchText: "PASSWORDS", replaceText: "\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}\u{2014}-")
+            ]),
+            ScriptTemplate(name: "Remove dot point prefix", steps: [
+                ProcessingStep(type: .removePrefix, prefix: " \u{2022} ")
+            ])
+        ]
     }
 
     func applyStep(_ step: ProcessingStep) {

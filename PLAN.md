@@ -1,29 +1,15 @@
-# Add "Apply script on bulk and merge" mode
+# Add 5 pre-built scripts to the main screen
 
-**Feature:**
+Add these 5 scripts from your attached file to the Scripts list, using the names you provided:
 
-- From the Scripts screen, add a new option on each script called "Apply script on bulk and merge".
-- Tapping it opens the file picker with multi-select enabled for .txt files.
-- The app runs the selected script on the contents of every picked file independently.
-- Results are combined into a single merged text file in this format:
-  ```
-  filename1.txt
-  -----------------------------------
-  <processed content of file 1>
+1. **Premium card types** — keeps only lines containing: Platinum, Signature, Gold, Corporate, Alberta, Australia, Zealand, Island, Infinite, Purchasing, Titanium, Business, Uhnw, World.
 
-  filename2.txt
-  -----------------------------------
-  <processed content of file 2>
-  ```
-- After processing, an export sheet appears to save the merged file as a .txt.
-- A progress popup shows which file is currently being processed (e.g. "Processing 3 of 12: notes.txt").
+2. **Casino keywords** — keeps only lines containing: Spin, Slot, Vegas, Reel, Pokie, fortune, Casin, Win, Play, Bit, King, Joker, Joka, Bet.
 
-**Where it lives:**
+3. **International emails** — removes lines containing: .pl; .de; .cz; .za; .nz; .it;
 
-- New action on each script row in the Scripts list (accessible via a menu button next to the existing Run button), and also from inside the Script Editor next to the existing Run button.
+4. **Convert to frequency report V2** — runs in order: convert log to frequency report → remove lines containing ":" → remove " • " prefix → remove lines containing "name/ema" and "===" → remove empty lines → replace "PASSWORDS" with a long dashed separator.
 
-**Behavior:**
+5. **Remove dot point prefix** — removes the " • " prefix from every line.
 
-- Files that fail to read are skipped and noted in the merged output with an `(error reading file)` marker under their filename separator.
-- The editor's current text is not modified by this action — it only produces the merged export file.
-
+These will appear automatically on first launch (only added if you don't already have scripts with the same names, so your existing work stays intact). You can edit or delete them like any other script.
