@@ -13,6 +13,9 @@ class AppViewModel {
     var progressTotal: Int = 0
     var progressLabel: String = ""
 
+    var bulkMergeResult: String? = nil
+    var showBulkMergeExporter: Bool = false
+
     private var textHistory: [String] = [""]
     private var historyIndex: Int = 0
 
@@ -121,6 +124,45 @@ class AppViewModel {
         text = result
         progressLabel = "Done"
         isProcessing = false
+    }
+
+    func runScriptOnFilesAndMerge(_ script: ScriptTemplate, urls: [URL]) async {
+        guard !script.steps.isEmpty, !urls.isEmpty else { return }
+        isProcessing = true
+        progressTotal = urls.count
+        progressCurrent = 0
+        progressLabel = "Starting bulk run..."
+
+        let separator = "-----------------------------------"
+        var merged: [String] = []
+
+        for (index, url) in urls.enumerated() {
+            let filename = url.lastPathComponent
+            progressCurrent = index + 1
+            progressLabel = "Processing \(index + 1) of \(urls.count): \(filename)"
+            await Task.yield()
+
+            let accessed = url.startAccessingSecurityScopedResource()
+            defer { if accessed { url.stopAccessingSecurityScopedResource() } }
+
+            guard let data = try? Data(contentsOf: url),
+                  let content = String(data: data, encoding: .utf8) else {
+                merged.append("\(filename)\n\(separator)\n(error reading file)")
+                continue
+            }
+
+            var result = content
+            for step in script.steps {
+                result = TextProcessingService.apply(step, to: result)
+            }
+            merged.append("\(filename)\n\(separator)\n\(result)")
+        }
+
+        bulkMergeResult = merged.joined(separator: "\n\n")
+        progressLabel = "Done"
+        try? await Task.sleep(for: .milliseconds(300))
+        isProcessing = false
+        showBulkMergeExporter = true
     }
 
     func applyTemplate(_ template: LineRemovalTemplate) {

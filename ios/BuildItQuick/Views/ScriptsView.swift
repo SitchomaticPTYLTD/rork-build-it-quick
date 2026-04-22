@@ -8,6 +8,8 @@ struct ScriptsView: View {
     @State private var showExporter: Bool = false
     @State private var showImporter: Bool = false
     @State private var importedCount: Int? = nil
+    @State private var bulkScript: ScriptTemplate? = nil
+    @State private var showBulkFilePicker: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -34,8 +36,18 @@ struct ScriptsView: View {
                                             .foregroundStyle(.secondary)
                                     }
                                     Spacer()
-                                    Button {
-                                        viewModel.runScript(script)
+                                    Menu {
+                                        Button {
+                                            viewModel.runScript(script)
+                                        } label: {
+                                            Label("Run on Current Text", systemImage: "play.fill")
+                                        }
+                                        Button {
+                                            bulkScript = script
+                                            showBulkFilePicker = true
+                                        } label: {
+                                            Label("Apply Script on Bulk and Merge", systemImage: "doc.on.doc")
+                                        }
                                     } label: {
                                         Image(systemName: "play.circle.fill")
                                             .font(.title2)
@@ -106,6 +118,26 @@ struct ScriptsView: View {
                 if case .success(let urls) = result, let url = urls.first {
                     importedCount = viewModel.importScripts(from: url)
                 }
+            }
+            .fileImporter(
+                isPresented: $showBulkFilePicker,
+                allowedContentTypes: [.plainText],
+                allowsMultipleSelection: true
+            ) { result in
+                if case .success(let urls) = result, let script = bulkScript, !urls.isEmpty {
+                    Task {
+                        await viewModel.runScriptOnFilesAndMerge(script, urls: urls)
+                    }
+                }
+                bulkScript = nil
+            }
+            .fileExporter(
+                isPresented: $viewModel.showBulkMergeExporter,
+                document: TextFile(text: viewModel.bulkMergeResult ?? ""),
+                contentType: .plainText,
+                defaultFilename: "merged.txt"
+            ) { _ in
+                viewModel.bulkMergeResult = nil
             }
             .alert("Imported", isPresented: Binding(get: { importedCount != nil }, set: { if !$0 { importedCount = nil } })) {
                 Button("OK") { importedCount = nil }

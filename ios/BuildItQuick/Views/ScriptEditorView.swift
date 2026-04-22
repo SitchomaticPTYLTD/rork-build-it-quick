@@ -1,10 +1,12 @@
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ScriptEditorView: View {
     @Bindable var viewModel: AppViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var script: ScriptTemplate
     @State private var showAddStep: Bool = false
+    @State private var showBulkFilePicker: Bool = false
     let onSave: (ScriptTemplate) -> Void
 
     init(viewModel: AppViewModel, script: ScriptTemplate, onSave: @escaping (ScriptTemplate) -> Void) {
@@ -75,6 +77,16 @@ struct ScriptEditorView: View {
                                 Spacer()
                             }
                         }
+                        Button {
+                            showBulkFilePicker = true
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Label("Apply Script on Bulk and Merge", systemImage: "doc.on.doc")
+                                    .font(.headline)
+                                Spacer()
+                            }
+                        }
                     }
                 }
             }
@@ -103,6 +115,19 @@ struct ScriptEditorView: View {
             .sheet(isPresented: $showAddStep) {
                 AddStepSheet { step in
                     script.steps.append(step)
+                }
+            }
+            .fileImporter(
+                isPresented: $showBulkFilePicker,
+                allowedContentTypes: [.plainText],
+                allowsMultipleSelection: true
+            ) { result in
+                if case .success(let urls) = result, !urls.isEmpty {
+                    let scriptCopy = script
+                    Task {
+                        await viewModel.runScriptOnFilesAndMerge(scriptCopy, urls: urls)
+                    }
+                    dismiss()
                 }
             }
         }
