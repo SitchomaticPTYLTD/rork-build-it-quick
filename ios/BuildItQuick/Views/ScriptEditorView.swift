@@ -234,7 +234,7 @@ struct AddStepSheet: View {
     private func stepConfigForm(_ stepType: StepType) -> some View {
         Form {
             switch stepType {
-            case .deduplicate, .trimLines, .removeEmptyLines, .extractEmails, .convertLogToDualFindData:
+            case .deduplicate, .trimLines, .removeEmptyLines, .extractEmails, .convertLogToDualFindData, .removeAllSpaces, .removeNonAlphanumericPrefix:
                 Section {
                     Text("This step requires no configuration.")
                         .foregroundStyle(.secondary)
@@ -390,6 +390,15 @@ struct AddStepSheet: View {
                             Text("Column \(i + 1)").tag(i)
                         }
                     }
+                }
+
+            case .convertSymbolToNewLines:
+                Section("Symbol") {
+                    TextField("Leave empty for space", text: $symbolText)
+                        .font(.system(.body, design: .monospaced))
+                    Text("Every occurrence of this symbol becomes a line break. Leave empty to split on spaces.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
 
             case .removeLinesContaining, .removeLinesNotContaining:

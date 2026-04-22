@@ -32,7 +32,7 @@ struct ToolConfigView: View {
             }
 
             switch stepType {
-            case .deduplicate, .trimLines, .removeEmptyLines, .extractEmails, .convertLogToDualFindData:
+            case .deduplicate, .trimLines, .removeEmptyLines, .extractEmails, .convertLogToDualFindData, .removeAllSpaces, .removeNonAlphanumericPrefix:
                 Section {
                     Text(descriptionForType)
                         .font(.subheadline)
@@ -240,6 +240,15 @@ struct ToolConfigView: View {
                     }
                 } header: {
                     Text("Minimum Password Requirements")
+                }
+
+            case .convertSymbolToNewLines:
+                Section("Symbol") {
+                    TextField("Leave empty for space", text: $symbolText)
+                        .font(.system(.body, design: .monospaced))
+                    Text("Every occurrence of this symbol (or string) becomes a line break. Leave empty to split on spaces.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
 
             case .removeDuplicateCellsInColumn:
@@ -493,6 +502,8 @@ struct ToolConfigView: View {
         case .removeEmptyLines: "Removes all blank or whitespace-only lines."
         case .extractEmails: "Extracts all email addresses found in the text, one per line."
         case .convertLogToDualFindData: "Parses a URL/USER/PASS credential log and generates a frequency report showing usernames and passwords sorted by how often they appear."
+        case .removeAllSpaces: "Removes every space character from the text."
+        case .removeNonAlphanumericPrefix: "Trims any leading characters that aren't letters or numbers from each line (e.g. bullets, dashes, spaces)."
         default: ""
         }
     }
@@ -501,7 +512,8 @@ struct ToolConfigView: View {
         switch stepType {
         case .deduplicate, .trimLines, .removeEmptyLines, .extractEmails,
              .sortAlphabetical, .sortByLength, .sortByEmail,
-             .convertLogToDualFindData:
+             .convertLogToDualFindData,
+             .removeAllSpaces, .convertSymbolToNewLines, .removeNonAlphanumericPrefix:
             true
         case .sortByColumnLength:
             !delimiter.isEmpty

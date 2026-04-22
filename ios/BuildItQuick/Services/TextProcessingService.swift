@@ -29,6 +29,9 @@ nonisolated enum TextProcessingService: Sendable {
         case .fixPasswordsInColumn: fixPasswordsInColumn(text, column: step.columnIndex, delimiter: step.delimiter, replaceWeak: step.replaceWeakPasswords)
         case .removeDuplicateCellsInColumn: removeDuplicateCellsInColumn(text, column: step.columnIndex, delimiter: step.delimiter)
         case .convertLogToDualFindData: convertLogToDualFindData(text)
+        case .removeAllSpaces: removeAllSpaces(text)
+        case .convertSymbolToNewLines: convertSymbolToNewLines(text, symbol: step.symbol)
+        case .removeNonAlphanumericPrefix: removeNonAlphanumericPrefix(text)
         }
     }
 
@@ -388,6 +391,26 @@ nonisolated enum TextProcessingService: Sendable {
             }
         }
         return result.joined(separator: "\n")
+    }
+
+    static func removeAllSpaces(_ text: String) -> String {
+        text.replacingOccurrences(of: " ", with: "")
+    }
+
+    static func convertSymbolToNewLines(_ text: String, symbol: String) -> String {
+        let target = symbol.isEmpty ? " " : symbol
+        return text.replacingOccurrences(of: target, with: "\n")
+    }
+
+    static func removeNonAlphanumericPrefix(_ text: String) -> String {
+        text.components(separatedBy: "\n")
+            .map { line in
+                if let idx = line.firstIndex(where: { $0.isLetter || $0.isNumber }) {
+                    return String(line[idx...])
+                }
+                return ""
+            }
+            .joined(separator: "\n")
     }
 
     static func convertLogToDualFindData(_ text: String) -> String {

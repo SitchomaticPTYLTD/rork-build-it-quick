@@ -26,6 +26,9 @@ nonisolated enum StepType: String, Codable, Sendable, CaseIterable {
     case fixPasswordsInColumn
     case removeDuplicateCellsInColumn
     case convertLogToDualFindData
+    case removeAllSpaces
+    case convertSymbolToNewLines
+    case removeNonAlphanumericPrefix
 
     var displayName: String {
         switch self {
@@ -54,6 +57,9 @@ nonisolated enum StepType: String, Codable, Sendable, CaseIterable {
         case .fixPasswordsInColumn: "Fix Passwords in Column"
         case .removeDuplicateCellsInColumn: "Remove Duplicate Cells in Column"
         case .convertLogToDualFindData: "Convert Log to Frequency Report"
+        case .removeAllSpaces: "Remove All Spaces"
+        case .convertSymbolToNewLines: "Convert Symbol to New Lines"
+        case .removeNonAlphanumericPrefix: "Remove Non-Alphanumeric Prefix"
         }
     }
 
@@ -84,12 +90,15 @@ nonisolated enum StepType: String, Codable, Sendable, CaseIterable {
         case .fixPasswordsInColumn: "key.fill"
         case .removeDuplicateCellsInColumn: "tablecells.badge.ellipsis"
         case .convertLogToDualFindData: "chart.bar.doc.horizontal"
+        case .removeAllSpaces: "space"
+        case .convertSymbolToNewLines: "return"
+        case .removeNonAlphanumericPrefix: "text.badge.minus"
         }
     }
 
     var category: StepCategory {
         switch self {
-        case .deduplicate, .trimLines, .removeEmptyLines, .fixPasswordsInColumn, .removeDuplicateCellsInColumn, .convertLogToDualFindData: .clean
+        case .deduplicate, .trimLines, .removeEmptyLines, .fixPasswordsInColumn, .removeDuplicateCellsInColumn, .convertLogToDualFindData, .removeAllSpaces, .convertSymbolToNewLines, .removeNonAlphanumericPrefix: .clean
         case .sortAlphabetical, .sortByLength, .sortByColumn, .sortByColumnLength, .sortByEmail: .sort
         case .addPrefix, .addSuffix, .removePrefix, .removeSuffix: .prefixSuffix
         case .replaceText, .removeText, .removeBeforeSymbol, .removeAfterSymbol: .findReplace
@@ -225,6 +234,9 @@ nonisolated struct ProcessingStep: Identifiable, Sendable, Hashable, Codable {
         case .removeDuplicateCellsInColumn: "Remove lines with duplicate cells in column \(columnIndex + 1)"
         case .sortByColumnLength: "Sort by length of column \(columnIndex + 1) (\(ascending ? "short first" : "long first"))"
         case .convertLogToDualFindData: "Convert URL/USER/PASS log to frequency report"
+        case .removeAllSpaces: "Remove every space character"
+        case .convertSymbolToNewLines: symbol.isEmpty ? "Convert spaces to new lines" : "Convert \"\(symbol)\" to new lines"
+        case .removeNonAlphanumericPrefix: "Trim leading non-alphanumeric characters from each line"
         }
     }
 }
