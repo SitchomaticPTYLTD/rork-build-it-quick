@@ -1,13 +1,13 @@
 //
-//  BuildItQuickUITests.swift
-//  BuildItQuickUITests
+//  BuildItQuickDesktopUITests.swift
+//  BuildItQuickDesktopUITests
 //
 //  Created by Rork on February 26, 2026.
 //
 
 import XCTest
 
-final class BuildItQuickUITests: XCTestCase {
+final class BuildItQuickDesktopUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

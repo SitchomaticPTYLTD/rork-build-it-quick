@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "iOS",
+      "name": "Build It Quick desktop",
       "path": "ios",
       "framework": "swift"
     }

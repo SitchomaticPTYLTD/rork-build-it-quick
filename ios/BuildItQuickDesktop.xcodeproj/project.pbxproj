@@ -12,37 +12,37 @@
 			containerPortal = 105FC5722E9EAD3100EA8BCF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 105FC5792E9EAD3100EA8BCF;
-			remoteInfo = BuildItQuick;
+			remoteInfo = BuildItQuickDesktop;
 		};
 		105FC5942E9EAD3200EA8BCF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 105FC5722E9EAD3100EA8BCF /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 105FC5792E9EAD3100EA8BCF;
-			remoteInfo = BuildItQuick;
+			remoteInfo = BuildItQuickDesktop;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		105FC57A2E9EAD3100EA8BCF /* BuildItQuick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildItQuick.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		105FC5892E9EAD3200EA8BCF /* BuildItQuickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildItQuickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		105FC5932E9EAD3200EA8BCF /* BuildItQuickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildItQuickUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		105FC57A2E9EAD3100EA8BCF /* BuildItQuickDesktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuildItQuickDesktop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		105FC5892E9EAD3200EA8BCF /* BuildItQuickDesktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildItQuickDesktopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		105FC5932E9EAD3200EA8BCF /* BuildItQuickDesktopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildItQuickDesktopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		105FC57C2E9EAD3100EA8BCF /* BuildItQuick */ = {
+		105FC57C2E9EAD3100EA8BCF /* BuildItQuickDesktop */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BuildItQuick;
+			path = BuildItQuickDesktop;
 			sourceTree = "<group>";
 		};
-		105FC58C2E9EAD3200EA8BCF /* BuildItQuickTests */ = {
+		105FC58C2E9EAD3200EA8BCF /* BuildItQuickDesktopTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BuildItQuickTests;
+			path = BuildItQuickDesktopTests;
 			sourceTree = "<group>";
 		};
-		105FC5962E9EAD3200EA8BCF /* BuildItQuickUITests */ = {
+		105FC5962E9EAD3200EA8BCF /* BuildItQuickDesktopUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BuildItQuickUITests;
+			path = BuildItQuickDesktopUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,9 +75,9 @@
 		105FC5712E9EAD3100EA8BCF = {
 			isa = PBXGroup;
 			children = (
-				105FC57C2E9EAD3100EA8BCF /* BuildItQuick */,
-				105FC58C2E9EAD3200EA8BCF /* BuildItQuickTests */,
-				105FC5962E9EAD3200EA8BCF /* BuildItQuickUITests */,
+				105FC57C2E9EAD3100EA8BCF /* BuildItQuickDesktop */,
+				105FC58C2E9EAD3200EA8BCF /* BuildItQuickDesktopTests */,
+				105FC5962E9EAD3200EA8BCF /* BuildItQuickDesktopUITests */,
 				105FC57B2E9EAD3100EA8BCF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,9 +85,9 @@
 		105FC57B2E9EAD3100EA8BCF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				105FC57A2E9EAD3100EA8BCF /* BuildItQuick.app */,
-				105FC5892E9EAD3200EA8BCF /* BuildItQuickTests.xctest */,
-				105FC5932E9EAD3200EA8BCF /* BuildItQuickUITests.xctest */,
+				105FC57A2E9EAD3100EA8BCF /* BuildItQuickDesktop.app */,
+				105FC5892E9EAD3200EA8BCF /* BuildItQuickDesktopTests.xctest */,
+				105FC5932E9EAD3200EA8BCF /* BuildItQuickDesktopUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		105FC5792E9EAD3100EA8BCF /* BuildItQuick */ = {
+		105FC5792E9EAD3100EA8BCF /* BuildItQuickDesktop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 105FC59D2E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuick" */;
+			buildConfigurationList = 105FC59D2E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickDesktop" */;
 			buildPhases = (
 				105FC5762E9EAD3100EA8BCF /* Sources */,
 				105FC5772E9EAD3100EA8BCF /* Frameworks */,
@@ -108,18 +108,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				105FC57C2E9EAD3100EA8BCF /* BuildItQuick */,
+				105FC57C2E9EAD3100EA8BCF /* BuildItQuickDesktop */,
 			);
-			name = BuildItQuick;
+			name = BuildItQuickDesktop;
 			packageProductDependencies = (
 			);
-			productName = BuildItQuick;
-			productReference = 105FC57A2E9EAD3100EA8BCF /* BuildItQuick.app */;
+			productName = BuildItQuickDesktop;
+			productReference = 105FC57A2E9EAD3100EA8BCF /* BuildItQuickDesktop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		105FC5882E9EAD3200EA8BCF /* BuildItQuickTests */ = {
+		105FC5882E9EAD3200EA8BCF /* BuildItQuickDesktopTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 105FC5A02E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickTests" */;
+			buildConfigurationList = 105FC5A02E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickDesktopTests" */;
 			buildPhases = (
 				105FC5852E9EAD3200EA8BCF /* Sources */,
 				105FC5862E9EAD3200EA8BCF /* Frameworks */,
@@ -131,18 +131,18 @@
 				105FC58B2E9EAD3200EA8BCF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				105FC58C2E9EAD3200EA8BCF /* BuildItQuickTests */,
+				105FC58C2E9EAD3200EA8BCF /* BuildItQuickDesktopTests */,
 			);
-			name = BuildItQuickTests;
+			name = BuildItQuickDesktopTests;
 			packageProductDependencies = (
 			);
-			productName = BuildItQuickTests;
-			productReference = 105FC5892E9EAD3200EA8BCF /* BuildItQuickTests.xctest */;
+			productName = BuildItQuickDesktopTests;
+			productReference = 105FC5892E9EAD3200EA8BCF /* BuildItQuickDesktopTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		105FC5922E9EAD3200EA8BCF /* BuildItQuickUITests */ = {
+		105FC5922E9EAD3200EA8BCF /* BuildItQuickDesktopUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 105FC5A32E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickUITests" */;
+			buildConfigurationList = 105FC5A32E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickDesktopUITests" */;
 			buildPhases = (
 				105FC58F2E9EAD3200EA8BCF /* Sources */,
 				105FC5902E9EAD3200EA8BCF /* Frameworks */,
@@ -154,13 +154,13 @@
 				105FC5952E9EAD3200EA8BCF /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				105FC5962E9EAD3200EA8BCF /* BuildItQuickUITests */,
+				105FC5962E9EAD3200EA8BCF /* BuildItQuickDesktopUITests */,
 			);
-			name = BuildItQuickUITests;
+			name = BuildItQuickDesktopUITests;
 			packageProductDependencies = (
 			);
-			productName = BuildItQuickUITests;
-			productReference = 105FC5932E9EAD3200EA8BCF /* BuildItQuickUITests.xctest */;
+			productName = BuildItQuickDesktopUITests;
+			productReference = 105FC5932E9EAD3200EA8BCF /* BuildItQuickDesktopUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -186,7 +186,8 @@
 					};
 				};
 			};
-			buildConfigurationList = 105FC5752E9EAD3100EA8BCF /* Build configuration list for PBXProject "BuildItQuick" */;
+			buildConfigurationList = 105FC5752E9EAD3100EA8BCF /* Build configuration list for PBXProject "BuildItQuickDesktop" */;
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -200,9 +201,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				105FC5792E9EAD3100EA8BCF /* BuildItQuick */,
-				105FC5882E9EAD3200EA8BCF /* BuildItQuickTests */,
-				105FC5922E9EAD3200EA8BCF /* BuildItQuickUITests */,
+				105FC5792E9EAD3100EA8BCF /* BuildItQuickDesktop */,
+				105FC5882E9EAD3200EA8BCF /* BuildItQuickDesktopTests */,
+				105FC5922E9EAD3200EA8BCF /* BuildItQuickDesktopUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,12 +259,12 @@
 /* Begin PBXTargetDependency section */
 		105FC58B2E9EAD3200EA8BCF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 105FC5792E9EAD3100EA8BCF /* BuildItQuick */;
+			target = 105FC5792E9EAD3100EA8BCF /* BuildItQuickDesktop */;
 			targetProxy = 105FC58A2E9EAD3200EA8BCF /* PBXContainerItemProxy */;
 		};
 		105FC5952E9EAD3200EA8BCF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 105FC5792E9EAD3100EA8BCF /* BuildItQuick */;
+			target = 105FC5792E9EAD3100EA8BCF /* BuildItQuickDesktop */;
 			targetProxy = 105FC5942E9EAD3200EA8BCF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -411,7 +412,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.rork.build-it-quick-j9nou2c;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.rork.build-it-quick-j9nou2c";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -444,7 +445,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.rork.build-it-quick-j9nou2c;
+				PRODUCT_BUNDLE_IDENTIFIER = "app.rork.build-it-quick-j9nou2c";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
@@ -474,7 +475,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildItQuick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BuildItQuick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildItQuickDesktopDesktop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BuildItQuickDesktop";
 			};
 			name = Debug;
 		};
@@ -496,7 +497,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildItQuick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BuildItQuick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuildItQuickDesktopDesktop.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BuildItQuickDesktop";
 			};
 			name = Release;
 		};
@@ -516,7 +517,7 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BuildItQuick;
+				TEST_TARGET_NAME = BuildItQuickDesktop;
 			};
 			name = Debug;
 		};
@@ -536,14 +537,14 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BuildItQuick;
+				TEST_TARGET_NAME = BuildItQuickDesktop;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		105FC5752E9EAD3100EA8BCF /* Build configuration list for PBXProject "BuildItQuick" */ = {
+		105FC5752E9EAD3100EA8BCF /* Build configuration list for PBXProject "BuildItQuickDesktop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				105FC59B2E9EAD3200EA8BCF /* Debug */,
@@ -552,7 +553,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		105FC59D2E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuick" */ = {
+		105FC59D2E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickDesktop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				105FC59E2E9EAD3200EA8BCF /* Debug */,
@@ -561,7 +562,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		105FC5A02E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickTests" */ = {
+		105FC5A02E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickDesktopTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				105FC5A12E9EAD3200EA8BCF /* Debug */,
@@ -570,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		105FC5A32E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickUITests" */ = {
+		105FC5A32E9EAD3200EA8BCF /* Build configuration list for PBXNativeTarget "BuildItQuickDesktopUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				105FC5A42E9EAD3200EA8BCF /* Debug */,

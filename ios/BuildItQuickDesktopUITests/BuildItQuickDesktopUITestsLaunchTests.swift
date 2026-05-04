@@ -1,13 +1,13 @@
 //
-//  BuildItQuickUITestsLaunchTests.swift
-//  BuildItQuickUITests
+//  BuildItQuickDesktopUITestsLaunchTests.swift
+//  BuildItQuickDesktopUITests
 //
 //  Created by Rork on February 26, 2026.
 //
 
 import XCTest
 
-final class BuildItQuickUITestsLaunchTests: XCTestCase {
+final class BuildItQuickDesktopUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
