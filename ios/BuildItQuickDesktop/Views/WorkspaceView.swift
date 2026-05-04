@@ -142,6 +142,15 @@ struct WorkspaceView: View {
 
             Spacer()
 
+            Button(role: .destructive) {
+                showClearConfirm = true
+            } label: {
+                Image(systemName: "trash")
+            }
+            .disabled(viewModel.text.isEmpty)
+
+            Spacer()
+
             Button {
                 viewModel.redo()
             } label: {
