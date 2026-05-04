@@ -51,7 +51,7 @@ struct MorphInputCardView: View {
 
     private var counterText: String {
         switch processingMode {
-        case .single:
+        case .single, .pattern:
             "\(characterCount) chars • \(wordCount) words"
         case .batch:
             "\(batchItemsCount) item\(batchItemsCount == 1 ? "" : "s")"
@@ -60,7 +60,7 @@ struct MorphInputCardView: View {
 
     private var placeholder: String {
         switch processingMode {
-        case .single:
+        case .single, .pattern:
             "Paste the text you want transformed..."
         case .batch:
             "Paste multiple text blocks. Separate each item with one blank line..."
@@ -69,7 +69,7 @@ struct MorphInputCardView: View {
 
     private var helpText: String {
         switch processingMode {
-        case .single:
+        case .single, .pattern:
             "Single mode transforms the entire input as one polished result."
         case .batch:
             "Batch mode keeps each blank-line-separated item independent."

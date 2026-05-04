@@ -31,7 +31,7 @@ struct MorphResultPanelView: View {
             }
 
             switch processingMode {
-            case .single:
+            case .single, .pattern:
                 singleResult
             case .batch:
                 batchResult

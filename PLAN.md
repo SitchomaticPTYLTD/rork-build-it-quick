@@ -1,39 +1,47 @@
-# Add AI Text-Morph as a new main tab
+# Transform AI Text-Morph into a Few-Shot Pattern Learning Engine
 
-**Features**
-- [x] Add a new “AI Text-Morph” tab alongside the current app sections.
-- [x] Let users transform text in single-item mode or batch mode.
-- [x] Split batch input by blank lines and process each item separately.
-- [x] Preserve built-in morph styles like professional, summary, grammar fix, simplify, and expand.
-- [x] Let users create custom morph styles with a name, emoji, and instruction.
-- [x] Save custom morph styles so they remain after closing the app.
-- [x] Let users delete custom morph styles from a long-press menu.
-- [x] Use a primary AI service with a silent backup service if the first one fails.
-- [x] Keep secret access values out of the app screen and show clear placeholders for secure setup.
-- [x] Show live batch progress while multiple items are being transformed.
-- [x] Show each batch item with its original snippet, transformed result, and success or error status.
-- [x] Add character count, word count, and batch item count.
-- [x] Add copy result and copy all results actions with animated confirmation.
-- [x] Add a clear button that resets input, output, errors, and progress.
-- [x] Add a retry button when processing fails.
+## What's changing
 
-**Design**
-- [x] Use a premium light and dark mode interface with layered cards and soft translucent surfaces.
-- [x] Add a polished header that makes the tool feel like a flagship text engine.
-- [x] Use strong visual hierarchy for input, style selection, action buttons, and results.
-- [x] Add refined empty states so the screen feels intentional before any result exists.
-- [x] Add accessible labels, large touch targets, and readable spacing throughout.
-- [x] Add smooth animations for copying, progress, results, and error feedback.
-- [x] Use the newest visual effects on newer devices while keeping graceful fallbacks for older supported devices.
+AI Text-Morph evolves from a "pick a style and rewrite" tool into a **Pattern Teacher**. You show the AI a few before → after examples, it figures out the rule, tells you how confident it is, and then applies that exact rule to a huge bulk paste — perfect for things like merging duplicate logins, standardizing dates, or reformatting lists.
 
-**Screens**
-- [x] Main AI Text-Morph screen with input, mode switch, morph styles, actions, and results.
-- [x] Custom style creation sheet for adding personal transformation modes.
-- [x] Batch results area showing per-item cards and overall progress.
-- [x] Error state with friendly message and retry action.
+All existing capabilities (custom modes, batch toggle, Groq → Gemini failover, copy/clear, API keys, toasts) stay fully intact and live alongside the new mode.
 
-**Safety and reliability**
-- [x] Remove embedded secret keys from the visible implementation.
-- [x] Use user-friendly error messages instead of raw technical failures.
-- [x] Keep all current capabilities intact while improving structure, resilience, and polish.
-- [x] Validate the app after implementation and fix any issues before reporting completion.
+## Features
+
+- **New "Pattern Learn" mode** added next to Single and Batch — a third tab in the same screen.
+- **Example pairs editor**: add as many "Before" → "After" cards as you want, edit them inline, delete with a swipe, reorder, and duplicate.
+- **Quick-start templates**: tap one to prefill the credential-grouping, date-standardization, or list-reformat examples used as inspiration.
+- **Analyze button**: AI reads all your pairs and returns a plain-English description of the rule it learned.
+- **Confidence meter**: animated 0–100% ring with color (red → amber → green). Below 70% shows a friendly nudge: "Add 1–2 more examples for higher accuracy."
+- **Apply to bulk**: once analysis is ready, paste hundreds/thousands of lines into a dedicated bulk box and tap "Apply Pattern" to transform them all using the learned rule, with live progress.
+- **Refine pattern**: tweak the AI's interpretation in natural language ("treat the email as the key, not the username") and re-analyze without losing examples.
+- **Pattern library**: save a learned pattern (rule + examples) with a name; reload it later from a list. Stored on-device.
+- **Result view**: full transformed output with copy-all, plus a small diff preview comparing input vs output line counts.
+- All previous Single, Batch, Custom Morph Modes, API Keys, and toasts continue to work unchanged.
+
+## Design
+
+- Premium iOS dashboard look, same indigo/graphite palette as today, full light/dark.
+- Three-tab segmented control at the top: **Single · Batch · Pattern Learn**.
+- Pattern Learn screen is a vertical scroll of clean cards:
+  1. Header card with a sparkles icon and one-line explainer.
+  2. **Examples** card containing stacked before/after pairs; each pair is a rounded card with a thin divider, a small "→" between fields, and a delete button. A dashed "+ Add Example" tile sits at the bottom.
+  3. **Confidence** card with a circular animated meter, the AI's plain-English rule summary, and a "Refine" text field.
+  4. **Apply** card with the bulk text editor, line counter, and a bold "Apply Pattern" button that shows live progress.
+  5. **Result** card with monospaced output, copy-all, and stats (lines in / out / changed).
+- Smooth spring animations when adding/removing example pairs, when the confidence ring fills, and when the result reveals.
+- Empty states: friendly illustrations using SF Symbols and helpful subcopy ("Show me 2–3 examples and I'll learn your pattern").
+- Subtle haptics on analyze, apply, and copy.
+
+## Screens
+
+- **AI Text-Morph (existing tab)** — now hosts three modes via the segmented control. Single and Batch behave exactly as today; Pattern Learn is the new flow described above.
+- **Pattern Library sheet** — slide-up sheet listing saved patterns with name, example count, learned rule, and last-used date. Tap to load, swipe to delete.
+- **Save Pattern sheet** — small sheet to name a pattern before saving.
+- **API Keys sheet** — unchanged.
+- **Custom Morph Mode sheet** — unchanged.
+
+## Notes
+
+- The AI uses your existing Groq → Gemini failover for both the analysis step and the apply step, so nothing new to configure.
+- Bulk apply is chunked behind the scenes so very large pastes (thousands of lines) stay responsive with a live progress bar and a cancel button.
