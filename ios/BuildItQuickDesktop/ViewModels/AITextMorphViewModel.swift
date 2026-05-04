@@ -9,7 +9,7 @@ final class AITextMorphViewModel {
     var singleOutput: String = ""
     var batchResults: [MorphBatchResult] = []
     var selectedMode: MorphMode = MorphMode.presets[0]
-    var processingMode: MorphProcessingMode = .single
+    var processingMode: MorphProcessingMode = .pattern
     var customModes: [MorphMode] = []
     var newModeDraft: NewMorphModeDraft = NewMorphModeDraft()
     var isProcessing: Bool = false

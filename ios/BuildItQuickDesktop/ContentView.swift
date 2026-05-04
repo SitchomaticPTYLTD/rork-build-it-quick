@@ -15,6 +15,9 @@ struct ContentView: View {
                 Tab("Scripts", systemImage: "list.number") {
                     ScriptsView(viewModel: viewModel)
                 }
+                Tab("Pattern AI", systemImage: "sparkles.rectangle.stack.fill") {
+                    AITextMorphView()
+                }
                 Tab("AI Morph", systemImage: "wand.and.stars") {
                     AITextMorphView()
                 }
