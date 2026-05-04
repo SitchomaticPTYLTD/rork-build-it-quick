@@ -38,8 +38,8 @@ nonisolated final class PatternLearningService: Sendable {
     // MARK: - Provider calls (Groq → Gemini failover)
 
     private func callAI(systemPrompt: String, userPrompt: String, temperature: Double) async throws -> String {
-        let groqKey = keychain.read(AIProvider.groq.keychainAccount)
-        let geminiKey = keychain.read(AIProvider.gemini.keychainAccount)
+        let groqKey = AIProvider.groq.resolvedKey(keychain: keychain)
+        let geminiKey = AIProvider.gemini.resolvedKey(keychain: keychain)
 
         if !groqKey.isEmpty {
             do {

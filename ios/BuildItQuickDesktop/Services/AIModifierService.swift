@@ -16,8 +16,8 @@ nonisolated final class AIModifierService: Sendable {
         let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedText.isEmpty else { throw AIModifierError.emptyInput }
 
-        let groqKey = keychain.read(AIProvider.groq.keychainAccount)
-        let geminiKey = keychain.read(AIProvider.gemini.keychainAccount)
+        let groqKey = AIProvider.groq.resolvedKey(keychain: keychain)
+        let geminiKey = AIProvider.gemini.resolvedKey(keychain: keychain)
 
         if !groqKey.isEmpty {
             do {

@@ -4,6 +4,8 @@
 import Foundation
 
 enum Config {
+    static let EXPO_PUBLIC_GEMINI_API_KEY = ""
+    static let EXPO_PUBLIC_GROQ_API_KEY = ""
     static let EXPO_PUBLIC_PROJECT_ID = ""
     static let EXPO_PUBLIC_RORK_API_BASE_URL = ""
     static let EXPO_PUBLIC_RORK_AUTH_URL = ""
@@ -12,6 +14,8 @@ enum Config {
     static let EXPO_PUBLIC_TOOLKIT_URL = ""
 
     static let allValues: [String: String] = [
+        "EXPO_PUBLIC_GEMINI_API_KEY": EXPO_PUBLIC_GEMINI_API_KEY,
+        "EXPO_PUBLIC_GROQ_API_KEY": EXPO_PUBLIC_GROQ_API_KEY,
         "EXPO_PUBLIC_PROJECT_ID": EXPO_PUBLIC_PROJECT_ID,
         "EXPO_PUBLIC_RORK_API_BASE_URL": EXPO_PUBLIC_RORK_API_BASE_URL,
         "EXPO_PUBLIC_RORK_AUTH_URL": EXPO_PUBLIC_RORK_AUTH_URL,
